@@ -1,4 +1,4 @@
-📘 ¿Qué es un Product Owner?
+PO📘 ¿Qué es un Product Owner?
 
 El Product Owner (PO) es un rol fundamental dentro de los equipos que utilizan metodologías ágiles, especialmente en Scrum. Su principal responsabilidad es maximizar el valor del producto y asegurar que el equipo de desarrollo trabaje en lo que realmente genera impacto para el negocio y los usuarios.
 
