@@ -1,6 +1,4 @@
-Basado en el documento "Estructura de la Página Web 'El Alma'", he diseñado una matriz de casos de prueba funcional. Dado que el stack es **HTML/CSS/Bootstrap/jQuery**, he incluido validaciones técnicas específicas para esas tecnologías.
-
-Aquí tienes los casos de prueba organizados por sección:
+## ✅ Checklist de Revisión Funcional
 
 ### 1. Cabecera (Header) y Navegación
 
