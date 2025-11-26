@@ -1,84 +1,103 @@
-## 📋 Resumen del Rol
+🌿 Proyecto E-commerce: Alma (cremas)
+Documentación de Roles y Responsabilidades: Fullstack Developer (Semi-Senior)
 
-Como **Frontend Developer Semi-Senior**, el objetivo principal fue traducir los diseños de UI/UX en una interfaz web funcional, performante y accesible. El rol implicó no solo la maquetación, sino también la gestión del estado de la aplicación, la integración con APIs y la optimización de la experiencia de compra del usuario.
+Este repositorio contiene el código fuente y la documentación técnica para la plataforma de comercio electrónico de Alma, una marca dedicada a la venta de cremas y productos de cuidado natural. Este documento detalla las labores específicas, tecnologías y metodologías aplicadas por el rol de Fullstack Semi-Senior durante el ciclo de vida del desarrollo.
 
----
+📋 1. Visión General del Rol
+Como Fullstack Semi-Senior, el objetivo principal es servir de puente entre la lógica de negocio compleja y una experiencia de usuario fluida. A diferencia de un Junior, se espera autonomía en la toma de decisiones de arquitectura modular y optimización; a diferencia de un Senior, el foco está más en la implementación robusta y el code quality que en la arquitectura de alto nivel o gestión de equipos.
 
-## 🚀 Responsabilidades Clave
+Stack Tecnológico Principal
+Frontend: React.js / Next.js, Tailwind CSS, Redux Toolkit.
 
-### 1. Arquitectura y Configuración del Proyecto
+Backend: Node.js (Express) o NestJS.
 
-* **Selección de Stack:** Participación en la decisión de tecnologías (ej. React/Next.js o Vue/Nuxt) basándose en los requisitos de SEO y performance.
-* **Estructura de Carpetas:** Definición de una estructura escalable para componentes, hooks, servicios y utilidades.
-* **Configuración del Entorno:** Setup de linters (ESLint, Prettier), husky pre-commit hooks y variables de entorno para desarrollo/producción.
+Base de Datos: PostgreSQL (Relacional para transacciones) y MongoDB (Catálogo de productos).
 
-### 2. Desarrollo de Componentes (Component Library)
+DevOps: Docker, AWS (S3, EC2), CI/CD con GitHub Actions.
 
-Creación de un sistema de diseño atómico reutilizable y consistente con la identidad visual de la marca de cremas (estética limpia, minimalista y confiable).
+🛠️ 2. Responsabilidades Backend (API & Lógica)
+El desarrollo del servidor se centra en la seguridad, escalabilidad y la correcta gestión del inventario de "Alma".
 
-* **UI Kit:** Botones, inputs, tarjetas de producto, modales y alertas.
-* **Cards de Producto:** Desarrollo de tarjetas interactivas con variantes (vista rápida, añadir al carrito, "out of stock").
-* **Filtros Avanzados:** Lógica para filtrar por tipo de piel, ingredientes y rango de precio.
+Diseño de API RESTful
+Creación de endpoints seguros para el ciclo de compra: POST /cart, POST /checkout, GET /orders.
 
-### 3. Gestión del Estado (State Management)
+Implementación de Autenticación y Autorización (JWT + OAuth2) para gestión de clientes y panel de administradores.
 
-Manejo de la lógica de negocio en el cliente para asegurar una navegación fluida.
+Validación de datos de entrada (Middlewares con Zod o Joi) para asegurar que los pedidos de cremas tengan stock y precios correctos.
 
-* **Carrito de Compras:** Persistencia del carrito (LocalStorage/SessionStorage) y sincronización en tiempo real.
-* **Autenticación:** Gestión de tokens (JWT), rutas protegidas (Perfil, Checkout) y manejo de sesiones de usuario.
-* **Contexto Global:** Uso de Context API o Redux/Zustand para manejar temas y preferencias del usuario.
+Base de Datos y Modelado
+Diseño del Schema de Productos: Categorización de cremas (e.g., Anti-age, Hidratante, Noche), manejo de variantes (tamaños de 50ml, 100ml) y control de stock.
 
-### 4. Integración con Backend (API Consumption)
+Optimización de queries SQL para reportes de ventas mensuales.
 
-Conexión con los endpoints del servidor para dinámizar la data.
+Migraciones de base de datos controladas.
 
-* **Fetching de Datos:** Implementación de `Axios` o `Fetch API` con manejo robusto de errores y estados de carga (Loading Skeletons).
-* **Optimización:** Uso de estrategias como `SWR` o `React Query` para caché y revalidación de datos.
-* **Checkout Flow:** Integración segura con pasarelas de pago (ej. Stripe, WebPay, MercadoPago).
+Integraciones de Terceros
+Conexión con pasarelas de pago (Webpay / Stripe / MercadoPago).
 
-### 5. Performance y SEO (Core Web Vitals)
+Integración con servicios de envío para cálculo de tarifas en tiempo real.
 
-Dado que es un e-commerce, la velocidad y la indexación son críticas.
+🎨 3. Responsabilidades Frontend (UX/UI & Cliente)
+El foco está en transmitir la identidad de marca de "Alma": pureza, suavidad y naturalidad, asegurando una performance alta.
 
-* **Lazy Loading:** Carga diferida de imágenes de alta calidad de los productos para no bloquear el renderizado inicial.
-* **Code Splitting:** División del código para cargar solo el JS necesario por página.
-* **Metadatos:** Implementación dinámica de etiquetas `<meta>` para cada producto (Open Graph, Title, Description).
+Componentización y Estado
+Desarrollo de una librería de componentes reutilizables (Botones, Cards de Productos, Modales) siguiendo el Design System de Alma.
 
----
+Gestión del Estado Global (Carrito de compras, Sesión de usuario) persistente entre recargas.
 
-## 🛠️ Stack Tecnológico
+Implementación de Server Side Rendering (SSR) para mejorar el SEO y que los productos aparezcan en búsquedas de Google.
+
+Experiencia de Usuario (UX)
+Optimización de imágenes (WebP) para mostrar las texturas de las cremas sin ralentizar la carga.
+
+Diseño Mobile First: Asegurar que la experiencia de compra sea perfecta en celulares.
+
+Implementación de feedback visual (Skeleton loaders, Toasts de éxito al agregar al carrito).
+
+⚙️ 4. Flujo de Trabajo y Calidad (QA & Best Practices)
+Labores diarias para asegurar la mantenibilidad del código.
+
+Code Review y Git Flow
+Uso de ramas por feature (feature/carrito-compras, fix/login-error).
+
+Revisión de Pull Requests de desarrolladores Junior, asegurando estándares de código (ESLint, Prettier).
+
+Resolución de conflictos de fusión (Merge conflicts).
+
+Testing
+Unit Testing: Pruebas unitarias en utilidades de cálculo de precios y descuentos (Jest).
+
+Integration Testing: Verificar que el flujo "Agregar al carrito -> Pagar" funcione correctamente con la API.
+
+Despliegue (Deployment)
+Configuración de pipelines de CI/CD para despliegues automáticos a entornos de Staging y Producción.
+
+Monitoreo de logs de errores en producción (Sentry) para reaccionar rápido ante fallos en la pasarela de pago.
+
+🚀 5. Cómo iniciar el proyecto
+Instrucciones para levantar el entorno de desarrollo local.
+
+Bash
+
+# 1. Clonar el repositorio
+
+git clone https://github.com/tu-usuario/alma-ecommerce.git
+
+# 2. Instalar dependencias (Raíz para monorepo o carpetas separadas)
+
+npm install
+
+# 3. Configurar variables de entorno
+
+cp .env.example .env
+
+# (Rellenar credenciales de BD y API Keys)
+
+# 4. Iniciar entorno de desarrollo
+
+npm run dev
+📬 Contacto y Soporte
+Para dudas técnicas sobre la arquitectura o reporte de bugs críticos en el proceso de checkout:
 
 
-| Categoría               | Tecnologías                                          |
-| :------------------------- | :------------------------------------------------------ |
-| **Core**                 | HTML5, CSS3, JavaScript (ES6+) / TypeScript           |
-| **Framework**            | React.js / Vue.js / Next.js (según aplique)          |
-| **Estilos**              | CSS Modules / Tailwind CSS / SASS / Styled Components |
-| **Estado**               | Redux Toolkit / Zustand / Context API                 |
-| **API**                  | Axios, RESTful APIs                                   |
-| **Control de Versiones** | Git, GitHub/GitLab                                    |
-| **Paquetería**          | NPM / Yarn                                            |
-
----
-
-## 🎨 Desafíos Específicos del Nicho (Cosmética)
-
-En este proyecto, se prestó especial atención a detalles visuales que transmiten "limpieza" y "calidad":
-
-* **Micro-interacciones:** Animaciones suaves al añadir cremas al carrito (feedback visual positivo).
-* **Galería de Imágenes:** Implementación de zoom de alta resolución para ver texturas de las cremas y envases.
-* **Accesibilidad (a11y):** Asegurar contraste de colores adecuado y navegación por teclado, cumpliendo estándares WCAG.
-
----
-
-## 🔄 Flujo de Trabajo (Workflow)
-
-1. **Daily Standups:** Reuniones diarias para sincronización con el equipo de Backend y Diseño.
-2. **Code Review:** Revisión de Pull Requests de desarrolladores Junior, asegurando calidad de código y buenas prácticas.
-3. **QA Testing:** Pruebas unitarias (Jest/Vitest) en componentes críticos y pruebas E2E (Cypress) para el flujo de compra.
-4. **Despliegue (CI/CD):** Configuración de pipelines para despliegues automáticos en Vercel/Netlify o AWS.
-
----
-
-
-*Este proyecto fue desarrollado siguiendo metodologías ágiles (Scrum/Kanban).*
+Desarrollado con ❤️ para Alma .
