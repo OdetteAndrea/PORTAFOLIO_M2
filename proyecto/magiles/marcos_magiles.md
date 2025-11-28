@@ -53,3 +53,5 @@ Se enfoca en la **visualización del flujo de trabajo** en tiempo real y la mejo
 * 🚀 **Time-to-market:** El producto llega antes al mercado.
 * 🔄 **Calidad:** Los errores se detectan y corrigen rápido.
 * 🤝 **Transparencia:** Todo el equipo sabe en qué estado está el proyecto.
+
+fin
